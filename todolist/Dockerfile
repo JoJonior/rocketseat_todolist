@@ -7,8 +7,8 @@ COPY . .
 
 RUN apt-get install maven -y
 #RUN mvn clean install
-
-RUN  mvn -file ./todolist/pom.xml install
+RUN  mvn -f ./todolist/pom.xml install
+#RUN  mvn -file ./todolist/pom.xml install
 
 FROM openjdk:17-jdk-slim
 
