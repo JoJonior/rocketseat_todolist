@@ -1,15 +1,17 @@
-#FROM ubuntu:latest AS build
+FROM ubuntu:latest AS build
 
-FROM maven:3.8.5-openjdk-17 AS build
+#FROM maven:3.8.5-openjdk-17 AS build
 
 RUN apt-get update
 RUN apt-get install openjdk-17-jdk -y
 
 
+RUN apt-get install maven -y
+
 
 COPY . .
 
-RUN apt-get install maven -y
+
 
 #RUN mvn clean install
 #RUN  mvn -f ./todolist/pom.xml install
