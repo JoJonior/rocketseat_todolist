@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS BUILD
+FROM windows:latest AS BUILD
 
 RUN apt-get update
 RUN apt-get install openjdk-17-jdk -y
