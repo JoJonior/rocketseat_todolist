@@ -1,9 +1,11 @@
-FROM ubuntu:latest AS build
+#FROM ubuntu:latest AS build
+
+FROM maven:3.8.5-openjdk-17 AS build
 
 RUN apt-get update
 RUN apt-get install openjdk-17-jdk -y
 
-FROM maven:3.8.5-openjdk-17 AS build2
+
 
 COPY . .
 
@@ -17,7 +19,7 @@ FROM openjdk:17-jdk-slim
 
 EXPOSE 8080
 
-COPY --from=build2 todolist/target/todolist-1.0.0.jar app.jar
+COPY --from=build todolist/target/todolist-1.0.0.jar app.jar
 
 
 
