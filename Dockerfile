@@ -13,16 +13,16 @@ COPY . .
 
 
 
-#RUN mvn clean install
+RUN mvn clean install
 #RUN  mvn -f ./todolist/pom.xml install
-RUN  mvn --file ./todolist/pom.xml clean install
+#RUN  mvn --file ./todolist/pom.xml clean install
 
 FROM openjdk:17-jdk-slim
 
 EXPOSE 8080
 
-COPY --from=build todolist/target/todolist-1.0.0.jar app.jar
-
+#COPY --from=build todolist/target/todolist-1.0.0.jar app.jar
+COPY --from=build /target/todolist-1.0.0.jar app.jar
 
 
 ENTRYPOINT [ "java","-jar", "app.java" ]
