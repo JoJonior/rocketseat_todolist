@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS build
+FROM windons:latest AS build
 
 RUN apt-get update
 RUN apt-get install openjdk-17-jdk -y
@@ -6,8 +6,8 @@ RUN apt-get install openjdk-17-jdk -y
 COPY . .
 
 RUN apt-get install maven -y
-#RUN mvn clean install
-RUN  mvn -f ./todolist/pom.xml install
+RUN mvn clean install
+#RUN  mvn -f ./todolist/pom.xml install
 #RUN  mvn -file ./todolist/pom.xml install
 
 FROM openjdk:17-jdk-slim
